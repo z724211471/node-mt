@@ -1,0 +1,16 @@
+extends ./head.pug
+
+block content
+ .loginbg
+  .loginmain
+    h1(class='logintitle') xxx玩具
+    form
+     .form-group
+       label(form='exampleInputEmail1')
+       input(type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入账号")
+       small(id="emailHelp" class="form-text text-muted") 
+     .form-group
+      label(form='exampleInputPassword1')
+      input(type="password" class="form-control" id="exampleInputPassword1" placeholder="Password")
+    button(type="submit" class="btn btn-primary") 登录
+    a(href='/re') 秀尔
