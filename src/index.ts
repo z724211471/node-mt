@@ -4,6 +4,7 @@ import "reflect-metadata";
 import { createConnection } from "typeorm";
 import { user } from "./router/user/adduser";
 import { classrouter } from "./router/bookclass/bookclass";
+import {booksrouter} from './router/book/books'
 import bodyParser from "body-parser";
 import lessMiddleware from "less-middleware";
 import cors from "cors";
@@ -14,6 +15,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded());
 app.use(user);
 app.use(classrouter);
+app.use(booksrouter);
 app.set("views", __dirname + "/views");
 app.set("view engine", "pug");
 app.use(lessMiddleware(__dirname+'/public',{debug:true,force:true}));

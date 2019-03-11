@@ -39,6 +39,7 @@
     "@types/less-middleware": "^2.0.31",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
+    "dayjs": "^1.8.10",
     "express": "^4.16.4",
     "gulp-babel": "^8.0.0",
     "gulp-typescript": "^5.0.0",
