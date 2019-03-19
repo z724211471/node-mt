@@ -1,4 +1,4 @@
-import { getConnection } from "typeorm";
+import { getConnection, getRepository } from "typeorm";
 import { Users } from "../../mysql/users/user";
 import { user } from "./adduser";
 
@@ -12,5 +12,8 @@ export const userdata = {
         { username: adddata["username"], password: adddata["password"] }
       ])
       .execute();
+  },
+  loginuser: (adddata: { [key: string]: string }) => {
+    return getRepository(Users).find({where:{username:adddata['username'],password:adddata["password"]}})
   }
 };

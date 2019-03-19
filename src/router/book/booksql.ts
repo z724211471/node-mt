@@ -2,6 +2,7 @@ import { getConnection, getRepository } from "typeorm";
 import { Books } from "../../mysql/book/book";
 import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";
+
 let time = dayjs(new Date())
   .locale("zh-cn")
   .format("YYYY-MM-DD HH:mm:ss");
@@ -35,11 +36,25 @@ let books = {
         {
           title: data["title"],
           text: html2Escape(data["text"]),
-          class: data["class"],
+          classid: data["class"],
           createtime: time
         }
       ])
       .execute();
+  },
+  selbook:()=>{
+    return getRepository(Books).find({select:['id','title','createtime']});
+  },
+  selidbook:(bookid:number)=>{
+    return getRepository(Books).find({where:{id:bookid}});
+  },
+  delbook:(bookid:number)=>{
+    return getRepository(Books).delete({id:bookid})
+  },
+  updatabook:(data: { [key: string]: any }) => {
+    return  getRepository(Books).update(data["id"], {
+      title:data["title"], text:html2Escape(data["text"]),classid:data["class"]
+    });
   }
 };
 

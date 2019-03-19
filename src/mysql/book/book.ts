@@ -1,6 +1,6 @@
 import { Bookclass } from './../bookclass/bookclass';
 
-import { Entity, Column, PrimaryGeneratedColumn,JoinColumn,ManyToOne } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 @Entity()
 export class Books {
   @PrimaryGeneratedColumn()
@@ -9,8 +9,8 @@ export class Books {
   title: string;
   @Column({type:"longtext"})
   text: string;
-  @ManyToOne(type => Bookclass,bookclass=>bookclass.id)
-  class: Bookclass;
+  @Column()
+  classid: number;
   @Column({type:"datetime",nullable:true})
   createtime: string;
 }

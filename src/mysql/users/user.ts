@@ -12,6 +12,10 @@ export class Users {
   sex: string;
   @Column({nullable:true})
   avatar: string;
+  @Column({nullable:true})
+  token: string;
+  @Column({type:"datetime",nullable:true})
+  tokentime: string;
   @Column({type:"datetime",nullable:true})
   createtime: string;
 }
