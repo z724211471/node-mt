@@ -9,7 +9,10 @@ import {commRouter} from './router/comm/index'
 import bodyParser from "body-parser";
 import lessMiddleware from "less-middleware";
 import cors from "cors";
-
+import Vue from 'vue';
+import {createRenderer} from 'vue-server-renderer';
+// import redis from 'redis';
+// var client = redis.createClient(); 
 const app = express();
 
 app.use(cors());
@@ -29,6 +32,30 @@ app.get("/", (req, res) => {
 app.get('/re', function(req, res) {
   res.render('re', { title: 'Express' });
 });
+let renderer=createRenderer();
+// app.get("/",(req,res)=>{
+//   const vue=new Vue({
+//     data:{
+//       url:req.url
+//     },
+//     template:`<div>访问的 URL 是： {{ url }}</div>`
+//   })
+//   renderer.renderToString(vue,(err,html)=>{
+//     if(err){
+//       res.status(500).end('Internal Server Error')
+//       return
+//     }
+//     res.end(`
+//       <!DOCTYPE html>
+//       <html lang="en">
+//       <meta charset="utf-8">
+//         <head><title>Hello</title></head>
+//         <body>${html}</body>
+//       </html>
+//     `)
+//   })
+// })
+
 createConnection({
   type: "mysql",
   host: "127.0.0.1",
