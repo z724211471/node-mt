@@ -1,6 +1,6 @@
 FROM node:10
-COPY ./node-shopadmin .
-WORKDIR /node-shopadmin
+COPY ./node-mt /
+WORKDIR /node-mt
 
 RUN npm install pm2 -g            # 全局安装 pm2
 RUN npm install                   # 安装项目依赖
