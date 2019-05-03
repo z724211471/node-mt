@@ -1,5 +1,5 @@
-FROM node:carbon
-COPY ./node-shopadmin
+FROM node:10
+COPY ./node-shopadmin .
 WORKDIR /node-shopadmin
 
 RUN npm install pm2 -g            # 全局安装 pm2
